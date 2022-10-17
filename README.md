@@ -24,5 +24,6 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### To start server use this command from project folder
+```
 json-server --watch db.json
 ```
