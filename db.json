@@ -47,7 +47,7 @@
       "date": "25.04.2000",
       "name": "MaxProj1",
       "count": 500,
-      "distance": "11 км"
+      "distance": "117 км"
     },
     {
       "id": 8,
@@ -68,14 +68,14 @@
       "date": "25.04.2000",
       "name": "Ethereum",
       "count": 500,
-      "distance": "11 км"
+      "distance": "25 км"
     },
     {
       "id": 11,
       "date": "25.04.2000",
       "name": "GegKek",
       "count": 500,
-      "distance": "11 км"
+      "distance": "15 км"
     }
   ]
 }
