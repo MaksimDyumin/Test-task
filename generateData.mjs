@@ -1,6 +1,6 @@
-export function getData() {
+export function getData(dataCount) {
   let arr = []
-  for (let index = 1; index <= 200; index++) {
+  for (let index = 1; index <= dataCount; index++) {
     arr.push 
     ({
       "id": index,

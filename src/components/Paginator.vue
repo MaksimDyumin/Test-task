@@ -57,7 +57,6 @@ export default {
 .paginator-container {
   display: flex;
   justify-content: center;
-  overflow-x: hidden;
   max-width: 900px;
 }
 </style>
