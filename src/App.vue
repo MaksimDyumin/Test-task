@@ -36,7 +36,7 @@ export default {
       getUnits: 'getUnits'
     }),
     changeValue(value) {
-      this.method = value.condition.method
+      this.condition = value.condition
       this.columnName = value.column.columnName
       this.valSort = value.inputValue
     }
@@ -47,7 +47,18 @@ export default {
     }),
     filtredUnits() {
       let filtredUnits = this.units.filter(unit => {
-        return this.method(this.valSort, unit[this.columnName]) 
+        if(this.columnName === 'distance'){
+          if(this.condition.value === 1 || this.condition.value === 2 ) {
+            return this.condition.method(Number(this.valSort), Number(unit[this.columnName].split(' ')[0]))
+          }
+          return this.condition.method(this.valSort, unit[this.columnName].split(' ')[0])
+        }
+        if(this.columnName === 'count'){
+          return this.condition.method(Number(this.valSort), Number(unit[this.columnName]))
+        }
+        else {
+          return this.condition.method(this.valSort, unit[this.columnName])
+        }
       })
       return filtredUnits
     }

@@ -14,7 +14,7 @@
         />
       </div>
     </transition>
-    <Paginator :pages="pages" @updatePageValue="updateCurrentPage"/>
+    <Paginator :pagesCount="pagesCount" @updatePageValue="updateCurrentPage"/>
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
     return {
       currentPageValue: 1,
       unitsPerPage: 10,
-      isRowsVisible: true
+      isRowsVisible: false
     }
   },
   props: {
@@ -44,11 +44,11 @@ export default {
     updateCurrentPage(value) {
       this.isRowsVisible = false
       this.currentPageValue = value
-      setTimeout(() => this.isRowsVisible = true, 400)
+      setTimeout(() => this.isRowsVisible = true, 200)
     }
   },
   computed: {
-    pages() {
+    pagesCount() {
       return Math.ceil(this.units.length / this.unitsPerPage)
     },
     currentPage() {

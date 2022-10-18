@@ -1,8 +1,8 @@
 <template>
-  <nav class="paginator-container" aria-label="">
-  <ul class="pagination">
+  <nav class="paginator-container" aria-label="Page navigation example">
+  <ul class="pagination paginator-container_list">
     <li class="page-item"><a class="page-link" href="#" @click="prevPage">Previous</a></li>
-    <li v-for="page in pages" :key="page" :class="`page-item ${page === currentPage ? 'active':''}`" @click="change(page)">
+    <li v-for="page in pagesCount" :key="page" :class="`page-item ${page === currentPage ? 'active':''}`" @click="change(page)">
       <a class="page-link" href="#">{{page}}</a>
     </li>
     <li class="page-item"><a class="page-link" href="#" @click="nextPage">Next</a></li>
@@ -13,9 +13,9 @@
 <script>
 export default {
   props: {
-    pages: {
+    pagesCount: {
       type: Number,
-      default: 2
+      default: 1
     },
   },
   methods: {
@@ -24,13 +24,24 @@ export default {
       this.$emit('updatePageValue', this.currentPage)
     },
     nextPage() {
-      this.currentPage++
-      this.$emit('updatePageValue', this.currentPage)
+      if(this.currentPage < this.pagesCount)
+      {
+        this.currentPage++
+        this.$emit('updatePageValue', this.currentPage)
+      }
     },
     prevPage() {
-      this.currentPage--
-      this.$emit('updatePageValue', this.currentPage)
+      if(this.currentPage > 1){
+        this.currentPage--
+        this.$emit('updatePageValue', this.currentPage)
+      } 
     }
+  },
+  watch: {
+    pagesCount() {
+      this.change(1)
+    },
+
   },
   data(){
     return {
@@ -44,8 +55,9 @@ export default {
 
 <style>
 .paginator-container {
-  margin: 0 auto;
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
+  max-width: 900px;
 }
 </style>

@@ -61,7 +61,7 @@ export default {
       },
     }
   },
-  mounted() {
+  created() {
     this.сomplitedFilter.column = this.columnOptions[0]
     this.сomplitedFilter.condition = this.conditionOptions[0]
     this.emitData()
@@ -95,7 +95,6 @@ export default {
     emitData() {
       this.сomplitedFilter.inputValue = this.inputValue
       this.$emit('changeValue', this.сomplitedFilter)
-      
     }
   },
   watch: {
