@@ -27,3 +27,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 json-server --watch db.json
 ```
+
+### Generate data for json.server
+You can generate data for table. In project folder use command
+```
+node moderateDb.mjs
+```
