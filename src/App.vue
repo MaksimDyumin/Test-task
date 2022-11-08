@@ -60,6 +60,24 @@ export default {
           return this.condition.method(this.valSort, unit[this.columnName])
         }
       })
+      if(this.columnName === 'count') {
+        filtredUnits = filtredUnits.sort((a,b) => {
+          return a.count - b.count
+        })
+      }
+      if(this.columnName === 'distance') {
+        filtredUnits = filtredUnits.sort((a,b) => {
+          return Number(a.distance.split(' ')[0]) - Number(b.distance.split(' ')[0])
+        })
+      }
+      if(this.columnName === 'name') {
+        filtredUnits = filtredUnits.sort((a,b) => {
+        if (a.name < b.name) {return -1;}
+        if (a.name > b.name) {return 1;}
+        return 0
+        })
+      }
+      
       return filtredUnits
     }
   }
